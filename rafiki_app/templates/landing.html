@@ -1,0 +1,33 @@
+{%extends 'base.html' %}
+{% load static %}
+{%block content%}
+  <div class="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-12">
+              <div class="form-block">
+                  <div class="mb-4">
+                      <h1>Welcome To Rafiki </h1>
+                  </div>
+                  <label>Log in if you already have registered!</label>
+                  <div class="form-group last mb-4">
+                      <div><button class="btn btn-pill text-white btn-block btn-primary"><a href="{% url 'login_view' %}">login</a></button></div>
+                  </div>
+                  <label>If not register here!</label>
+                  <div class="form-group last mb-4">
+                      <div><button class="btn btn-pill text-white btn-block btn-primary"><a href="{% url 'register' %}">register</a></button></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{%endblock content%}
+    

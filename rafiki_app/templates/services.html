@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block content %}
+<style>
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#services p{
+  color: #EE9591;
+}
+
+img {
+  width: 100%
+}
+
+.image {
+  flex-basis: 40%
+}
+
+.text {
+  font-size: 20px;
+  padding-left: 20px;
+}
+form.form {
+  width: 70%;
+  border-radius: 0px;
+  height: 50px;
+  margin: 0 auto;
+}
+</style>
+<div class="contianer" id="services">
+  <p class="fw-bold display-6 text-center" >Our Services</p>
+  <form class="form" role="search" action=" ">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="&#xf3ee; Search by category" name="image_category">
+      <br>
+    </div>
+  </form>
+<div class="container">
+  <div class="image">
+    <img src="/static/images/garden.jpg">
+  </div>
+  <div class="text">
+    <h1>Gardening.</h1>
+    <h2>We offer gardening services from one of the best gardeners in the country.</h2>
+    <a href="{% url 'profile' %} " class="btn btn-lg btn-danger mt-3 mt-md-4 px-4"
+      >Hire Now</a>
+  </div>
+</div>
+<div class="container">
+   <div class="text">
+    <h1>Dog walking.</h1>
+    <p>Our goals are</p>
+    <ul>
+    <li>Create community</li>
+    <li>Create community</li>
+    <li>Create community</li>
+    </ul>
+    <a href=" " class="btn btn-lg btn-danger mt-3 mt-md-4 px-4"
+    >Hire Now</a>
+  </div>
+  <div class="image">
+    <img src="/static/images/garden.jpg">
+  </div>
+</div>
+<div class="container">
+  <div class="image">
+    <img src="/static/images/garden.jpg">
+  </div>
+  <div class="text">
+    <h1>Laundry.</h1>
+    <a href=" " class="btn btn-lg btn-danger mt-3 mt-md-4 px-4"
+    >Hire Now</a>
+  </div>
+</div>
+
+</div>
+{% endblock %}    
+ 
