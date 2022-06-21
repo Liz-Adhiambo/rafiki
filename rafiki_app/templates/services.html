@@ -2,10 +2,19 @@
 {% load static  %}
 {% block content %}
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.container h1{
+  font-family: 'Dancing Script', cursive;
+}
+.container a{
+  font-family: 'Dancing Script', cursive;
+  text-decoration: solid;
+
 }
 #services p{
   color: #EE9591;
@@ -44,37 +53,51 @@ form.form {
     <img src="/static/images/garden.jpg">
   </div>
   <div class="text">
-    <h1>Gardening.</h1>
+    <h1 class="fw-bold">Gardening.</h1>
     <h2>We offer gardening services from one of the best gardeners in the country.</h2>
-    <a href="{% url 'profile' %} " class="btn btn-lg btn-danger mt-3 mt-md-4 px-4"
+    <P>Gardening can be considered an art which is why our gardeners are skilled and maintain your garden.From cultivating and maintaining flower gardens to growinf vegetables and flowers our gardeners can do it all. Other maintenance include:</P>
+    <ul>
+      <li>Lawn mowing and edging.</li>
+      <li>Weeding</li>
+      <li>Trimming</li>
+      <li>Pruning and the clearing up of leaves</li>
+    </ul>
+    <a href="{% url 'profile' %} " class=" fw-bold btn btn-lg btn-danger mt-3 mt-md-4 px-4"
       >Hire Now</a>
   </div>
 </div>
 <div class="container">
    <div class="text">
-    <h1>Dog walking.</h1>
-    <p>Our goals are</p>
-    <h2>We offer gardening services from one of the best gardeners in the country.</h2>
+    <h1 class="fw-bold">Pet Care.</h1>
+    <h2>We offer a variety of pet care services that will keep your pets happy </h2>
+    <p>Whether this be taking your dog on daily walks, emptying your cats litter trays, or simply ensuring that your pet is fed and has a fresh bowl of water. Our services can be tailored to your pets, as well as you, to make sure theyre getting the best possible care.
+    other services include:
+    </p>
     <ul>
-    <li>Create community</li>
-    <li>Create community</li>
-    <li>Create community</li>
+      <li>Over night care</li>
+      <li>Gromming your pets</li>
     </ul>
-    <a href=" " class="btn btn-lg btn-danger mt-3 mt-md-4 px-4"
+    <a href=" " class="fw-bold btn btn-lg btn-danger mt-3 mt-md-4 px-4"
     >Hire Now</a>
   </div>
   <div class="image">
-    <img src="/static/images/garden.jpg">
+    <img src="/static/images/pets.jpg">
   </div>
 </div>
 <div class="container">
   <div class="image">
-    <img src="/static/images/garden.jpg">
+    <img src="/static/images/house.jpg">
   </div>
   <div class="text">
-    <h1>Laundry.</h1>
-    <h2>We offer gardening services from one of the best gardeners in the country.</h2>
-    <a href=" " class="btn btn-lg btn-danger mt-3 mt-md-4 px-4"
+    <h1 class="fw-bold">House Keeping.</h1>
+    <h2>Our range of housekeeping services can ease the pressure and keep your home exactly the way you like it. these include:</h2>
+    <p>cleaning services our employees can carry out many task such as Washing dishes, vaccuming both carpeted and wooden flooring, cleaning bathrooms and even dusting. Other services include:</p>
+    <ul>
+      <li>Laundry and ironing.</li>
+      <li> Preparing meals and snacks.</li>
+      <li>Shopping and running errands.</li>
+    </ul>
+    <a href=" " class=" fw-bold btn btn-lg btn-danger mt-3 mt-md-4 px-4"
     >Hire Now</a>
   </div>
 </div>
