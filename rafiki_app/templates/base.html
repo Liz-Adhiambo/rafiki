@@ -1,5 +1,7 @@
-<!doctype html>
 {% load static %}
+{% load bootstrap5 %}
+
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -12,16 +14,28 @@
     <!-- Bootstrap CSS -->
     
     <!-- Style -->
+
+    {% block styles %}
+      {% bootstrap_css %}
+    
+        <link rel="stylesheet" href="{% static 'css/austine.css' %}">
+    {% endblock%}
+    
+    
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/tine.css' %}">
-    <link rel="stylesheet" href="{% static 'css/austine.css' %}">
-    <link rel="stylesheet" href="{% static 'css/joey.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 
     <title>Rafiki</title>
   </head>
-  <body>
+  <body class='bod '>
 
-    {%block content%} {%endblock content%}
+    {%block content%} 
+    
+    
+    {%endblock content%}
 
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
