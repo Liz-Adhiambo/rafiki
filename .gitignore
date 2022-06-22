@@ -1,5 +1,8 @@
 venv/
 *pyc
 .env
-rafiki_project/settigs.py
+
 virtual/
+rafiki_project/settings.py/
+rafiki_app/migrations/
+
