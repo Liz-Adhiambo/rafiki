@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
 .account-img {
     height: 125px;
     width: 125px;
@@ -5,4 +7,10 @@
     margin-bottom: 16px;
   }
 
-  
+  body{
+    font-family: 'Poppins', sans-serif;  }
+
+.myform{
+  font-weight: bold;
+  margin-top: 10px;
+}    
