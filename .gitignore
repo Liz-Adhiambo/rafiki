@@ -3,3 +3,5 @@ venv/
 .env
 rafiki_project/settings.py
 virtual/
+rafiki_app/migrations/
+

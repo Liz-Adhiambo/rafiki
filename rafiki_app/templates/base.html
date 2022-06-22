@@ -1,5 +1,7 @@
-<!doctype html>
 {% load static %}
+{% load bootstrap5 %}
+
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -12,12 +14,19 @@
     <!-- Bootstrap CSS -->
     
     <!-- Style -->
+
+    {% block styles %}
+      {% bootstrap_css %}
+    
+        <link rel="stylesheet" href="{% static 'css/austine.css' %}">
+    {% endblock%}
     
     
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
 
     <title>Rafiki</title>
   </head>

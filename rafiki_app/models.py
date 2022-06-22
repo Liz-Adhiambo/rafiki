@@ -2,6 +2,7 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 # Create your models here.
 
 
@@ -36,13 +37,16 @@ class Category(models.Model):
 
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
-    profile_picture = models.ImageField(upload_to = 'uploads/')
+    profile_picture = models.ImageField(upload_to = 'uploads/' ,default='default.jpg')
     bio = models.TextField()
     date_joined=models.DateTimeField(default=datetime.now)
     address = models.CharField(max_length=50, blank=True)
     location = models.CharField(max_length=50, blank=True)
-    availability = models.BooleanField()
+    availability = models.BooleanField(null=True)
     profile_category = models.ForeignKey('Category',null=True, blank=True, on_delete=models.CASCADE)
+
+    def save_profile(self):
+        self.save()
 
     def save_image(self):
         self.save()
