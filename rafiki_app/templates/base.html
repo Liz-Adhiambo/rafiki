@@ -1,5 +1,7 @@
-<!doctype html>
 {% load static %}
+{% load bootstrap5 %}
+
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -12,10 +14,12 @@
     <!-- Bootstrap CSS -->
     
     <!-- Style -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/tine.css' %}">
-    <link rel="stylesheet" href="{% static 'css/austine.css' %}">
-    <link rel="stylesheet" href="{% static 'css/joey.css' %}">
+    {% block styles %}
+      {% bootstrap_css %}
+    
+        <link rel="stylesheet" href="{% static 'css/austine.css' %}">
+    {% endblock %}
+
 
     <title>Rafiki</title>
   </head>

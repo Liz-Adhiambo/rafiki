@@ -11,6 +11,10 @@ urlpatterns = [
     path('employee/', views.employee, name='employee'),
     path('update_profile/', views.update_profile, name='update_profile'),
 
-    path('profile/<str:username>/', views.public_profile, name='public-profile'),
+    path('employee/<str:username>/', views.public_profile, name='public-profile'),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

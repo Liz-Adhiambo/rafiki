@@ -7,7 +7,10 @@
 <div class="container">
     <div class='content-section'>
         <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.profile_picture.url }}">
+            <img class="rounded-circle account-img" style="height: 125px;
+            width: 125px;
+            margin-right: 20px;
+            margin-bottom: 16px;" src="{{ user.profile.profile_picture.url }}" ">
             <div class="media-body">
                 <h2 class='account-heading'>{{ user.username }}</h2>
                 <p class='text-secondary'>{{ user.profile.bio }}</p>
@@ -17,12 +20,12 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class='border-bottom mb-4'>Profile Info</legend>
-                <p class='text-secondary'>{{ user.profile.address }}</p>
-                <p class='text-secondary'>{{ user.profile.location }}</p>
-                <p class='text-secondary'>Availability:{{ user.profile.availability }}</p>
+                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Address: </span>{{ user.profile.address }}</p>
+                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Location: </span>{{ user.profile.location }}</p>
+                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Availability: </span>{{ user.profile.availability }}</p>
 
-                <p class='text-secondary'>{{ user.profile.date_joined }}</p>
-                <p class='text-secondary'>{{ user.profile.profile_category }}</p>
+                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Date_Joined: </span>{{ user.profile.date_joined }}</p>
+                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Profile: </span>{{ user.profile.profile_category }}</p>
 
 
                 {{ u_form|crispy }}
@@ -30,7 +33,6 @@
             </fieldset>
             <div class='form-group'>
 
-               <a href="{% url 'update_profile' %}" "><button class='btn btn-outline-info' type='submit' >Update</button></a>
                <a href="{% url 'update_profile' %}" ">update profile</a>
 
             </div>
