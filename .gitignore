@@ -1,3 +1,7 @@
 venv/
 *pyc
 .env
+virtual/
+rafiki_project/settings.py
+
+
