@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
+
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import *
 from .models import *
+
 
 # Create your views here.
 
@@ -12,6 +14,13 @@ from .models import *
 def index(request):
     return render(request, 'landing.html')
 
+def services(request):
+    return render(request, 'services.html')
+
+def profile(request):
+     profiles = Profile.get_all_profiles()
+     return render(request, 'employers/employer.html', {"profiles":profiles})
+    
 
 def register(request):
     msg = None
@@ -20,7 +29,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             msg = 'user created'
-         
+
             return redirect('login_view')
         else:
             msg = 'form is not valid'
@@ -53,6 +62,7 @@ def login_view(request):
 
 def employer(request):
     return render(request,'employers/employer.html')
+
 
 
 def employee(request):

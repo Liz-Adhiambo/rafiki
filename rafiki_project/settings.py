@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rafiki_app',
+
     "crispy_forms",
     "crispy_bootstrap5",
      "bootstrap5",
+
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -91,6 +93,7 @@ DATABASES = {
         'NAME': 'friend',
         'USER': 'moringa',
     'PASSWORD':'Access',
+
     }
 }
 
@@ -146,6 +149,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 AUTH_USER_MODEL = 'rafiki_app.User'
