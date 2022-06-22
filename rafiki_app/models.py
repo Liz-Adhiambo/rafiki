@@ -36,7 +36,7 @@ class Category(models.Model):
 
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='profile')
-    profile_picture = models.ImageField(upload_to = 'uploads/')
+    profile_picture = models.ImageField(upload_to = 'uploads/' ,default='default.jpg')
     bio = models.TextField()
     date_joined=models.DateTimeField(default=datetime.now)
     address = models.CharField(max_length=50, blank=True)

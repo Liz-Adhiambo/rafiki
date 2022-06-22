@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib import messages
+from .forms import *
+from .models import *
+
 # Create your views here.
 
 
@@ -52,4 +57,36 @@ def employer(request):
 
 
 def employee(request):
+    
     return render(request,'employees/employee.html')
+
+def update_profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('employee')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'employees/update_profile.html', context)    
+
+def public_profile(request, username):  
+    obj = User.objects.get(username=username)  
+    context = {
+        
+    }
+    response = render(request, 'employees/public_employee.html', context, {'title': 'Public-Profile'})
+    return response    
