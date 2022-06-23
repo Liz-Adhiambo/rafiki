@@ -1,5 +1,6 @@
 venv/
 *pyc
+migrations/
 .env
 
 rafiki_project/settings.py
