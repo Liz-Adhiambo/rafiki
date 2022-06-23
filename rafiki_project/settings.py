@@ -9,19 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import os
+
 from pathlib import Path
-import django_heroku
-import cloudinary
-
-
-cloudinary.config( 
-  cloud_name = "nkatha-photosplash", 
-  api_key = "456841764713855", 
-  api_secret = "mEgAHvtnbJkT5XEDZPgOcv8yXlY" 
-)
-
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,10 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rafiki_app',
-    'bootstrap4',
-    'cloudinary',
-    'django_heroku',
-    
 ]
 
 MIDDLEWARE = [
@@ -70,9 +55,7 @@ ROOT_URLCONF = 'rafiki_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR,'templates'),
-        ],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,16 +73,11 @@ WSGI_APPLICATION = 'rafiki_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-#DATABASE-URL="postgres://nyytbovvujdcqm:e49b65d12e226cf0b8604268d67bc07cb19ad60ecbe72f3dd7ced0b4afcdf958@ec2-34-200-35-222.compute-1.amazonaws.com:5432/dcp2g36mc0h4jg"
 
 DATABASES = {
-   'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dcp2g36mc0h4jg',
-        'USER': 'nyytbovvujdcqm',
-        'PASSWORD': 'e49b65d12e226cf0b8604268d67bc07cb19ad60ecbe72f3dd7ced0b4afcdf958',
-        'HOST': 'ec2-34-200-35-222.compute-1.amazonaws.com',
-        'PORT': '5432',
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -140,29 +118,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-AUTH_USER_MODEL = 'rafiki_app.User'
-
-
-#
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-
-
-django_heroku.settings(locals())
