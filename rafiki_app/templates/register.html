@@ -1,27 +1,31 @@
 {%extends 'base.html'%}
 {% load static %}
+{%load bootstrap4%}
 {%block content%}
-
-<div class="content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
+<div class="w-100 d-flex flex-column align-items-center justify-content-center" style="min-height:100vh;background-image: url('/static/images/signup.png'); background-repeat: no-repeat;object-fit: cover;background-size: cover;">
+  <div class="d-flex row justify-content-end align-items-center w-100 ">
+    <div class="card  shadow-lg m-2 col-md-12 col-lg-6 col-xl-6 col-sm-10 col-10"  >
+      <div class="content "> 
+       <div class="container">
+         <div class="row justify-content-center">
+          <div class="col-md-11 contents">
+           <div class="row justify-content-center">
             <div class="col-md-12">
               <div class="form-block">
-                  <div class="mb-4">
-                      <h1>User Registration page</h1>
+                  <div class="mb-2">
+                      <h5 class="" style="font-weight: 600;font-size:20px">User Registration page</h5>
                 </div>
                   <span class="mb-0 text-muted">
                 {% if msg %}
                     {{ msg | safe }}
                 {% else %}
-                    Login page
+                  
                 {% endif %}
               </span>
                 <form  method="post">
                     {% csrf_token %}
-                  <div class="form-group first">
+                  
+                  <div class="form-group second">
                     <label for="username">Username</label>
                       {{ form.username }}
                   </div>
@@ -38,20 +42,26 @@
                       {{ form.password2 }}
                   </div>
                   
-                  <div class="d-flex mb-5 align-items-center">
+                  <div class="d-flex mb-2 align-items-center">
                     <label class="control control--checkbox mb-0"><span class="caption">employer</span>
                         {{ form.is_employer }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
-                  <div class="d-flex mb-5 align-items-center">
+                  <div class="d-flex mb-4 align-items-center">
                     <label class="control control--checkbox mb-0"><span class="caption">employee</span>
                         {{ form.is_employee }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
+                  <div class="d-flex flex-column w-100 justify-content-center align-items-center">
                     <span class="text-error">{{ form.errors }}</span>
-                  <input type="submit"  value="Register" class="btn btn-pill text-white btn-block btn-primary">
+                    <input type="submit"  value="Register" class=" mb-1 btn btn-pill text-white btn-block btn-primary w-75" >
+                    <p style="text-align: center; line-height: 10px;">OR</p>
+                    <a href="{% url 'login_view' %}" class="mb-3 btn btn-pill text-white btn-block  w-75" style="background: #EE9591;">Login to Your Account </a>
+
+                  </div>
+                
                 </form>
               </div>
             </div>
