@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+
+
+<h1 class="text-center"> hello {{ user.username }} you are an employer</h1>
+<div class="container">
+  <h2 class="text-center">List of Employees</h2>
+  <div class="row">
+      {% for profile in profiles %}     
+      <div class="col-lg-4">
+          <div class="card p-0">
+              <div class="card-image">
+                  <img src="{{profile.profile_picture.url}}"
+                      alt="">
+              </div>
+              <div class="card-content d-flex flex-column align-items-center">
+                  <h4 class="pt-2">{{profile.user.username.capitalize}}</h4>
+                  <h5>{{profile.profile_category}}</h5>
+                  <a href=" " class="btn btn-secondary mt-3 mt-md-4 px-4">More details</a>
+
+                  <ul class="social-icons d-flex justify-content-center">
+                      <li style="--i:1">
+                          <a href="#">
+                              <span class="fab fa-facebook"></span>
+                          </a>
+                      </li>
+                      <li style="--i:2">
+                          <a href="#">
+                              <span class="fab fa-twitter"></span>
+                          </a>
+                      </li>
+                      <li style="--i:3">
+                          <a href="#">
+                              <span class="fab fa-instagram"></span>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
+{%endblock content%}
