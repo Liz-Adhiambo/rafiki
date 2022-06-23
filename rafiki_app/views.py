@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth import authenticate, login
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from .forms import *
 from .models import *
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -60,8 +60,15 @@ def login_view(request):
     return render(request, 'login.html', {'form': form, 'msg': msg})
 
 
+@login_required(login_url='index')
+def logout(request):
+    auth.logout(request)
+    return redirect('index')
+
+
 def employer(request):
-    return render(request,'employers/employer.html')
+    profiles = Profile.get_all_profiles()
+    return render(request,'employers/employer.html',{"profiles":profiles})
 
 
 
@@ -103,3 +110,16 @@ def public_profile(request, username):
     }
    
     return render(request, 'employees/public_employee.html',  {'username': obj})
+
+
+def search_profile(request):
+    title = 'Search'
+    categories = Category.objects.all()
+    if 'profile_category' in request.GET and request.GET['profile_category']:
+        search_term = request.GET.get('profile_category')
+        found_results = Profile.search_by_category(search_term)
+        message = f"{search_term}"
+        return render(request, 'search.html', {'title':title,'profile': found_results, 'message': message, 'categories': categories})
+    else:
+        message = 'You havent searched yet'
+        return render(request, 'search.html',{"message": message})

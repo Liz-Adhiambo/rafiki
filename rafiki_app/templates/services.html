@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static  %}
 {% block content %}
+{% include 'navbar.html' %}
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 .container {
@@ -14,20 +15,16 @@
 .container a{
   font-family: 'Dancing Script', cursive;
   text-decoration: solid;
-
 }
 #services p{
   color: #EE9591;
 }
-
 img {
   width: 100%
 }
-
 .image {
   flex-basis: 95%
 }
-
 .text {
   font-size: 20px;
   padding-left: 20px;
@@ -39,12 +36,11 @@ form.form {
   margin: 0 auto;
 }
 </style>
-
 <div class="contianer" id="services">
   <p class="fw-bold display-6 text-center" >Our Services</p>
-  <form class="form" role="search" action=" ">
+  <form class="form" role="search" action="{%url 'search_profile' %} ">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="&#xf3ee; Search by category" name="image_category">
+      <input type="text" class="form-control" placeholder="&#xf3ee; Search by category" name="profile_category">
       <br>
     </div>
   </form>
@@ -117,7 +113,24 @@ form.form {
    <img src="/static/images/driver.jpg">
  </div>
 </div>
-
 </div>
-{% endblock %}    
- 
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

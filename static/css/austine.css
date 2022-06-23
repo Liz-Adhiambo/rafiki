@@ -1,14 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Rubik+Moonrocks&display=swap');
 .account-img {
     height: 125px;
     width: 125px;
     margin-right: 20px;
     margin-bottom: 16px;
   }
-
-
+  .profile{
+    font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
 .myform{
   font-weight: bold;
   margin-top: 10px;
-}    
+}
+.rafiki{
+  font-weight: bolder;
+  font-size: xx-large;
+  font-style: italic;
+  font-family: 'Rubik Moonrocks', cursive;
+}
+.intro{
+  margin-top: 10px;
+  text-align: center;
+}
+.account-heading{
+  font-family: 'Rubik Moonrocks', cursive;
+}
+.media{
+  text-align: center;
+  margin-top: 10px;
+}
+.mycard{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  margin-bottom: 5%;
+}

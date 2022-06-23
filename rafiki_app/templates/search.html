@@ -1,0 +1,231 @@
+{%extends 'base.html'%}
+{% block content %}
+{%include 'navbar2.html'%}
+{{block.super}}
+<style>
+    /* Importing fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container .row .col-lg-4 {
+    display: flex;
+    justify-content: center;
+}
+.card {
+    position: relative;
+    padding: 0;
+    margin: 0 !important;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.card .card-image {
+    width: 400px;
+    height: 400px;
+}
+.card .card-image img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}
+.card .card-content {
+    position: absolute;
+    bottom: -180px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    min-height: 140px;
+    width: 100%;
+    transition: bottom .4s ease-in;
+    box-shadow: 0 -10px 10px rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.card .card-content h5{
+    color:#EE9591;
+}
+.card:hover .card-content {
+    bottom: 0px;
+}
+.card:hover .card-content h4,
+.card:hover .card-content h5 {
+    transform: translateY(10px);
+    opacity: 1;
+}
+.card .card-content h4,
+.card .card-content h5 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    transition: 0.8s;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-40px);
+    transition-delay: 0.2s;
+}
+.card .card-content h5 {
+    transition: 0.5s;
+    font-weight: 200;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+.card .card-content .social-icons {
+    list-style: none;
+    padding: 0;
+}
+.card .card-content .social-icons li {
+    margin: 10px;
+    transition: 0.5s;
+    transition-delay: calc(0.15s * var(--i));
+    transform: translateY(50px);
+}
+.card:hover .card-content .social-icons li {
+    transform: translateY(20px);
+}
+.card .card-content .social-icons li a {
+    color: #fff;
+}
+.card .card-content .social-icons li a span {
+    font-size: 1.3rem;
+}
+@media(max-width: 991.5px) {
+    .container {
+        margin-top: 20px;
+    }
+    .container .row .col-lg-4 {
+        margin: 20px 0px;
+    }
+}
+header {
+	background: url(/static/images/home2.webp);
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+}
+header .overlay{
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	color: #FFF;
+	text-shadow: 1px 1px 1px #333;
+  background-image: linear-gradient( 135deg, #9f05ff69 10%, #fd5e086b 100%);
+	
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 80px;
+	margin-bottom: 30px;
+}
+
+h3, p {
+	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 30px;
+}
+
+button {
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 50px;
+	color: #333;
+	background: #fff;
+	margin-bottom: 50px;
+	box-shadow: 0 3px 20px 0 #0000003b;
+}
+button:hover{
+	cursor: pointer;
+}
+</style>
+
+
+
+<header>
+	<div class="overlay">
+        <h1 class="text-center"> Hello {{ user.username }} Welcome to <span class='raf'>Rafiki</span></h1>
+        <h2 class="text-center">List of Workers</h2>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab. Vero nostrum quis, odio veniam itaque ullam debitis qui magnam consequatur ab.</p>
+	<br>
+	
+		</div>
+</header>
+<div class="container">
+  <div class="row">
+   {% if profile %}
+    <h2 class="text-center">Found {{ profile |length}} profiles for searched term {{message}}</h2>
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-4">
+            {% for profile in profile %}
+              <div class="card p-0">
+                  <div class="card-image">
+                      <img src="{{profile.profile_picture.url}}" alt="">
+                  </div>
+                  <div class="card-content d-flex flex-column align-items-center">
+                      <h4 class="pt-2">{{profile.user.username.capitalize}}</h4>
+                      <h5>{{profile.profile_category}}</h5>
+                      <a href="{% url 'public-profile' username=profile %} " class="btn btn-secondary mt-3 mt-md-4 px-4">More details</a>
+                      <ul class="social-icons d-flex justify-content-center">
+                          <li style="--i:1">
+                              <a href="#">
+                                  <span class="fab fa-facebook"></span>
+                              </a>
+                          </li>
+                          <li style="--i:2">
+                              <a href="#">
+                                  <span class="fab fa-twitter"></span>
+                              </a>
+                          </li>
+                          <li style="--i:3">
+                              <a href="#">
+                                  <span class="fab fa-instagram"></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              {% endfor %}
+          </div>
+      </div>
+    </div>
+     {% else %}
+         <h2 class="text-center">Found 0 profiles for the search term {{message}}</h2>
+         {% endif %}
+     </div>
+ </div>
+ <br>
+ {% include 'footer.html'%}
+ {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

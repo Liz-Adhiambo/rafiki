@@ -79,4 +79,10 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+    @classmethod
+    def search_by_category(cls, profile_category):
+        profile = Profile.objects.filter(profile_category__name__icontains=profile_category)
+        return profile
+
+
     

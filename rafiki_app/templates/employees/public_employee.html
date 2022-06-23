@@ -1,51 +1,47 @@
 {%extends 'base.html'%}
 {% load static %}
 {% load crispy_forms_tags %}
-
 {%block content%}
-
-<div class="container">
-
-    <div class='content-section mt-3'>
-        <div class="row">
-            <div class="col-md-3 image " style="background-color: rgb(237, 243, 242);">
+{%include 'navbar2.html'%}
+<div class="container profile">
+    <div class="intro">
+        <h3 class="rafiki">Rafiki {{username}} Profile</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col1 "></div>
+        <div class="col-md-6">
+            <div class='content-section card mycard'>
                 <div class="media">
-                    <img class=" account-img mt-3 rounded-circle " style="height: 125px;
+                    <img class="rounded-circle account-img" style="height: 125px;
                     width: 125px;
                     margin-right: 20px;
-                    margin-bottom: 16px;" src="{{ username.profile.profile_picture.url }}"">
+                    margin-bottom: 16px;" src="{{ username.profile.profile_picture.url }}" ">
                     <div class="media-body">
                         <h2 class='account-heading'>{{ username }}</h2>
+                        <h3>{{ username.profile.profile_category }}</h3>
                         <p class='text-secondary'>{{ username.profile.bio }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-5">
                 <form method="POST" enctype='multipart/form-data'>
                     {% csrf_token %}
-                    <fieldset class="form-group">
+                    <fieldset class="form-group ">
                         <legend class='border-bottom mb-4'>Profile Info</legend>
-                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Address: </span>{{ username.profile.address }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Contact: </span>{{ username.profile.address }}</p>
                         <p class='text-secondary'><span style="color:red ;font-weight:bold" >Location: </span>{{ username.profile.location }}</p>
-                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Availabilty: </span>{{ username.profile.availability }}</p>
-        
-                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Date Joined: </span>{{ username.profile.date_joined }}</p>
-                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Role: </span>{{ username.profile.profile_category }}</p>
-        
-        
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Availability: </span>{{ username.profile.availability }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Date_Joined: </span>{{ username.profile.date_joined }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Category: </span>{{ username.profile.profile_category }}</p>
                         {{ u_form|crispy }}
                         {{ p_form|crispy }}
                     </fieldset>
-                   
+                    <div class='form-group'>
+                        <h4>Contact and Hire Now</h4>
+                    </div>
                 </form>
             </div>
-
-            <div class="col-md-2"></div>
         </div>
-        
-       
+        <div class="col-md-3"></div>
     </div>
 </div>
-
-
+{% include 'footer.html'%}
 {%endblock content%}

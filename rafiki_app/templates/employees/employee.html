@@ -1,44 +1,49 @@
 {%extends 'base.html'%}
 {% load static %}
 {% load crispy_forms_tags %}
-
 {%block content%}
-
-<div class="container">
-    <div class='content-section'>
-        <div class="media">
-            <img class="rounded-circle account-img" style="height: 125px;
-            width: 125px;
-            margin-right: 20px;
-            margin-bottom: 16px;" src="{{ user.profile.profile_picture.url }}" ">
-            <div class="media-body">
-                <h2 class='account-heading'>{{ user.username }}</h2>
-                <p class='text-secondary'>{{ user.profile.bio }}</p>
+{%include 'navbar2.html'%}
+<div class="container profile">
+    <div class="intro">
+        <h3 class="rafiki">Rafiki Profile</h3>
+    <p>Your Profile.One step away from being a RAFIKI!<br>
+        You can view and update your profile below</p>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col1 "></div>
+        <div class="col-md-6">
+            <div class='content-section card mycard'>
+                <div class="media">
+                    <img class="rounded-circle account-img" style="height: 125px;
+                    width: 125px;
+                    margin-right: 20px;
+                    margin-bottom: 16px;" src="{{ user.profile.profile_picture.url }}" ">
+                    <div class="media-body">
+                        <h2 class='account-heading'>{{ user.username }}</h2>
+                        <h3>{{ user.profile.profile_category }}</h3>
+                        <p class='text-secondary'>{{ user.profile.bio }}</p>
+                    </div>
+                </div>
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <fieldset class="form-group ">
+                        <legend class='border-bottom mb-4'>Profile Info</legend>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Contact: </span>{{ user.profile.address }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Location: </span>{{ user.profile.location }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Availability: </span>{{ user.profile.availability }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Date_Joined: </span>{{ user.profile.date_joined }}</p>
+                        <p class='text-secondary'><span style="color:red ;font-weight:bold" >Category: </span>{{ user.profile.profile_category }}</p>
+                        {{ u_form|crispy }}
+                        {{ p_form|crispy }}
+                    </fieldset>
+                    <div class='form-group'>
+                       <a href="{% url 'update_profile' %}" " class="btn btn-danger">update profile</a>
+                    </div>
+                </form>
             </div>
         </div>
-        <form method="POST" enctype='multipart/form-data'>
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class='border-bottom mb-4'>Profile Info</legend>
-                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Address: </span>{{ user.profile.address }}</p>
-                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Location: </span>{{ user.profile.location }}</p>
-                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Availability: </span>{{ user.profile.availability }}</p>
-
-                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Date_Joined: </span>{{ user.profile.date_joined }}</p>
-                <p class='text-secondary'><span style="color:red ;font-weight:bold" >Profile: </span>{{ user.profile.profile_category }}</p>
-
-
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
-            </fieldset>
-            <div class='form-group'>
-
-               <a href="{% url 'update_profile' %}" ">update profile</a>
-
-            </div>
-        </form>
+        <div class="col-md-3"></div>
     </div>
 </div>
-
-
+{% include 'footer.html'%}
 {%endblock content%}
