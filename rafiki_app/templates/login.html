@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+{% load static %}
+{%load bootstrap4%}
+{%block content%}
+<div class="w-100 d-flex flex-column align-items-center justify-content-center main-container" style="min-height:100vh;background-image: url('/static/images/signup.png'); background-repeat: no-repeat;object-fit: cover;background-size: cover;">
+  <div class="d-flex row justify-content-end align-items-center w-100 ">
+    <div class="card  shadow-lg  col-md-12 col-lg-6 col-xl-6 col-sm-10 col-10  m-2" style="border-radius: 15px;" >
+      <div class="card-header text-center">
+<div class="content" >
+    <div class="container" >
+      <div class="row justify-content-end " >
+        <div class="contents" >
+          <div class="row justify-content-start" >
+            <div class="col-md-12">
+              <div class="form-block">
+                  <div class="mb-2 w-100 d-flex">
+                    <h1 style="text-align: left; font-size: 24px;font-weight: 600;">User login page</h1>
+                </div>
+
+              <span class="mb-0 text-muted">
+                {% if msg %}
+                    {{ msg | safe }}
+                {% else %}
+                    
+                {% endif %}
+              </span>
+                <form  method="post">
+                    {% csrf_token %}
+                  <div class="form-group first ">
+                    <label for="username" class="w-100" style="text-align: left;">Username</label>
+                      {{ form.username }}
+                  </div>
+                  <div class="form-group last mb-4">
+                    <label for="username" class="w-100" style="text-align: left;">Password</label>
+                    {{ form.password }}
+                  </div>
+
+                  <div class="d-flex mb-5 align-items-center justify-content-between">
+                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                      <input type="checkbox" checked="checked"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
+                  </div>
+
+                  <input type="submit" value="Log In" class="mb-1 btn btn-pill text-white btn-block btn-primary w-75">
+                  <p>OR</p>
+                  <a href="{% url 'register' %}" class="mb-1 btn btn-pill text-white btn-block btn-info w-75">Register New Account here</a>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock content%}
