@@ -113,6 +113,7 @@ def public_profile(request, username):
     return render(request, 'employees/public_employee.html',  {'username': obj})
 
 
+
 def search_profile(request):
     title = 'Search'
     categories = Category.objects.all()

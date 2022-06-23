@@ -19,8 +19,10 @@ urlpatterns = [
     path('update_profile/', views.update_profile, name='update_profile'),
 
     path('employee/<str:username>/', views.public_profile, name='public-profile'),
+
     path('search/', views.search_profile, name = 'search_profile'),
     path('logout/', views.logout, name='logout'),
+
 
 
 ]

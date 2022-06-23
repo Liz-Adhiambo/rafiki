@@ -29,6 +29,12 @@ font-size: 30px;
 line-height: 19px;
 color: #95e8f3;
 
+font-style: italic;
+font-weight: 500;
+font-size: 16px;
+line-height: 19px;
+
+color: #AEEDF5;
 }
 
 .bhome{
@@ -350,6 +356,7 @@ color: #FFFFFF;
     text-align: center;
     color: #fff;
     background-color: #f59fb5;
+    background-color: #6184a8;
     padding: 2%;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
@@ -358,6 +365,8 @@ color: #FFFFFF;
   .cardd1 img {
     width: 150px;
     height: 300px;
+    width: 100%;
+    height: 98%;
     object-fit: cover;
     display: block;
     position: relative;
@@ -374,6 +383,8 @@ color: #FFFFFF;
     padding: 18px 8%;
     background-color: rgb(0, 0, 1);
     overflow-y:scroll;
+    background-color: white;
+    overflow-y: scroll;
     transition: 0.8s ease;
   }
   

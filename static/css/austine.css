@@ -1,10 +1,16 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Rubik+Moonrocks&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+
 .account-img {
     height: 125px;
     width: 125px;
     margin-right: 20px;
     margin-bottom: 16px;
   }
+
   .profile{
     font-family: 'Poppins', sans-serif;
   font-weight: bold;
