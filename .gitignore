@@ -3,7 +3,7 @@ venv/
 migrations/
 .env
 
-rafiki_project/settings.py
+rafiki_project/settingsc.py
 virtual/
 rafiki_app/migrations/
 

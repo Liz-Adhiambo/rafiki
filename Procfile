@@ -1,0 +1,1 @@
+web: gunicorn rafiki_project.wsgi --log-file -
