@@ -61,6 +61,9 @@ After extracting the files,
 
 ## Collaboraters
 [Liz2222](https://github.com/Liz2222) 
+<br>
 [joey57](https://github.com/joey57)
+<br>
 [aust1inn](https://github.com/aust1inn)
+<br>
 [christine-nkatha](https://github.com/christine-nkatha)
