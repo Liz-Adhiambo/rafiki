@@ -60,7 +60,7 @@ After extracting the files,
 ## [License]()
 
 ## Collaboraters
-[https://github.com/Liz2222]Liz2222
-[https://github.com/joey57]Joyce Njoroge
-[https://github.com/aust1inn]Austine Omondi
-[https://github.com/christine-nkatha]Christine Nkatha
+[Liz2222](https://github.com/Liz2222) 
+[joey57](https://github.com/joey57)
+[aust1inn](https://github.com/aust1inn)
+[christine-nkatha](https://github.com/christine-nkatha)
