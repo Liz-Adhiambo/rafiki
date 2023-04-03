@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-DATABASE_URL='postgresql://postgres:5XEn2rDnJe6S0xIPci1G@containers-us-west-174.railway.app:7191/railway'
+DATABASE_URL='postgresql://postgres:Wr25A8ezBiZH06qu4mHf@containers-us-west-137.railway.app:8042/railway'
 
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
