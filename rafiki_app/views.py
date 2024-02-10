@@ -10,7 +10,7 @@ from .models import *
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-# test two
+
 
 
 def index(request):
