@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-
+#front page
 def index(request):
     return render(request, 'landing.html')
 
